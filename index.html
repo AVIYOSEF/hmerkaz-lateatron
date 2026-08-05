@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>המרכז לתיאטרון | אבי יוסף</title>
+  <meta
+    name="description"
+    content="המרכז לתיאטרון בהנהלת אבי יוסף – לימודי משחק, תיאטרון, יצירתיות וביטחון עצמי לילדים ולבני נוער."
+  >
+
+  <style>
+    :root {
+      --wine: #6f1728;
+      --wine-dark: #470d19;
+      --gold: #c79b52;
+      --cream: #f7f2e9;
+      --paper: #fffdf9;
+      --text: #211c1d;
+      --muted: #71686a;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(48, 18, 25, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(111, 23, 40, 0.1);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand strong {
+      color: var(--wine);
+      font-size: 1.25rem;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--wine);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: var(--wine);
+      color: var(--white);
+      font-weight: bold;
+      border: 1px solid var(--wine);
+      transition: 0.25s ease;
+    }
+
+    .button:hover {
+      background: var(--wine-dark);
+      border-color: var(--wine-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-light {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.65);
+    }
+
+    .button-light:hover {
+      background: var(--white);
+      color: var(--wine);
+    }
+
+    .hero {
+      min-height: 680px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(44, 7, 16, 0.94), rgba(91, 16, 34, 0.78)),
+        radial-gradient(circle at 80% 25%, #a64f61 0, transparent 35%),
+        linear-gradient(135deg, #300813, #7b2035);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 470px;
+      height: 470px;
+      border: 1px solid rgba(199, 155, 82, 0.35);
+      border-radius: 50%;
+      left: -150px;
+      top: -170px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      right: -100px;
+      bottom: -120px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 790px;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #f2d9a5;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.6rem);
+      line-height: 0.98;
+      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: normal;
+      color: #f1e6e8;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 670px;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading span {
+      color: var(--wine);
+      font-weight: bold;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      margin: 10px 0 17px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-card {
+      min-height: 430px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(62, 11, 24, 0.25), rgba(62, 11, 24, 0.55)),
+        linear-gradient(135deg, #d6b280, #7b263a);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: end;
+      padding: 32px;
+      color: var(--white);
+    }
+
+    .about-card strong {
+      font-size: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .values {
+      background: var(--cream);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 12px 35px rgba(54, 25, 31, 0.07);
+      border: 1px solid rgba(111, 23, 40, 0.08);
+    }
+
+    .card-number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--wine);
+      color: var(--white);
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .card h3 {
+      color: var(--wine);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .locations {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .location {
+      padding: 34px;
+      border-radius: 24px;
+      background: var(--white);
+      border-right: 5px solid var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .location h3 {
+      color: var(--wine);
+      font-size: 1.5rem;
+      margin-bottom: 7px;
+    }
+
+    .location p {
+      color: var(--muted);
+    }
+
+    .gallery-preview {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: 220px 220px;
+      gap: 14px;
+    }
+
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #7a2539, #c59c64);
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item::after {
+      content: "תמונה מהפעילות תופיע כאן";
+      position: absolute;
+      inset: auto 0 0;
+      padding: 18px;
+      color: var(--white);
+      font-weight: bold;
+      background: linear-gradient(transparent, rgba(31, 7, 13, 0.85));
+    }
+
+    .contact {
+      background: var(--wine);
+      color: var(--white);
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .contact h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 650px;
+    }
+
+    footer {
+      background: #24070e;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 610px;
+      }
+
+      .about-grid,
+      .cards,
+      .locations {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        min-height: 320px;
+      }
+
+      .gallery-preview {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 260px 190px 190px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
+
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      section {
+        padding: 72px 0;
+      }
+
+      .hero-content {
+        padding: 80px 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .gallery-preview {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 220px);
+      }
+
+      .gallery-item:first-child {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <strong>המרכז לתיאטרון</strong>
+        <span>בהנהלת אבי יוסף</span>
+      </a>
+
+      <nav>
+        <a href="#about">אודות</a>
+        <a href="#values">הדרך שלנו</a>
+        <a href="#locations">שלוחות</a>
+        <a href="#gallery">גלריה</a>
+        <a href="#contact">יצירת קשר</a>
+      </nav>
+
+      <a class="button" href="#contact">לשיעור ניסיון</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">משחק • יצירה • ביטחון • במה</span>
+
+          <h1>המרכז<br>לתיאטרון</h1>
+
+          <h2>בהנהלת אבי יוסף</h2>
+
+          <p>
+            מקום מקצועי, יצירתי ומחבק שבו ילדים ובני נוער לומדים משחק,
+            מפתחים ביטחון עצמי, מעזים להביע את עצמם והופכים לקבוצה אמיתית.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="button" href="#contact">להצטרפות ושיעור ניסיון</a>
+            <a class="button button-light" href="#about">להכיר אותנו</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+
+        <div class="about-text">
+          <div class="section-heading">
+            <span>מי אנחנו</span>
+            <h2>הרבה מעבר לחוג משחק</h2>
+          </div>
+
+          <p>
+            המרכז לתיאטרון בהנהלת אבי יוסף מעניק לילדים ולבני נוער
+            סביבת לימוד מקצועית, בטוחה ומעוררת השראה.
+          </p>
+
+          <p>
+            במהלך השנה התלמידים מתנסים במשחק, אלתור, עבודת דמות,
+            תנועה, משחק מול מצלמה ועבודה קבוצתית – בדרך אל הבמה ואל
+            הפקה מלאה.
+          </p>
+
+          <p>
+            אנחנו מאמינים שכל תלמיד מביא איתו קול אישי ואור משלו.
+            התפקיד שלנו הוא לתת לו כלים, מקום וביטחון כדי להביא אותם
+            לידי ביטוי.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div>
+            <strong>אבי יוסף</strong>
+            <p>מורה למשחק, במאי ומחזאי</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="values" id="values">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>הדרך שלנו</span>
+          <h2>מה התלמידים מקבלים אצלנו?</h2>
+          <p>
+            הלימודים משלבים עבודה מקצועית על הבמה עם תהליך אישי וחברתי.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>כלי משחק מקצועיים</h3>
+            <p>
+              עבודה על דמות, טקסט, קול, תנועה, אלתור, הקשבה ונוכחות בימתית.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>ביטחון וביטוי אישי</h3>
+            <p>
+              מקום שמאפשר להתנסות, להעז, לטעות, להשתפר ולהרגיש שרואים אותך.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>קבוצה ותחושת שייכות</h3>
+            <p>
+              התלמידים לומדים לעבוד יחד, לפרגן, להקשיב וליצור יצירה משותפת.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="locations">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>השלוחות שלנו</span>
+          <h2>איפה אפשר ללמוד?</h2>
+          <p>
+            בהמשך נוסיף כאן את הימים, השעות, קבוצות הגיל והכתובות המדויקות.
+          </p>
+        </div>
+
+        <div class="locations">
+          <article class="location">
+            <h3>הוד השרון</h3>
+            <p>קבוצות משחק ותיאטרון לילדים ולבני נוער.</p>
+          </article>
+
+          <article class="location">
+            <h3>כפר ויתקין</h3>
+            <p>לימודי משחק, יצירה והפקות במה לאורך השנה.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="values" id="gallery">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>מהבמה ומהסטודיו</span>
+          <h2>רגעים מהדרך</h2>
+          <p>
+            בהמשך נחליף את הריבועים בתמונות אמיתיות מהצגות, שיעורים וחזרות.
+          </p>
+        </div>
+
+        <div class="gallery-preview">
+          <div class="gallery-item"></div>
+          <div class="gallery-item"></div>
+          <div class="gallery-item"></div>
+          <div class="gallery-item"></div>
+          <div class="gallery-item"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-box">
+
+        <div>
+          <h2>המקום שלכם<br>על הבמה מתחיל כאן</h2>
+          <p>
+            לפרטים, הרשמה ושיעור ניסיון ניתן ליצור קשר. בשלב הבא נחבר כאן
+            כפתור WhatsApp ישיר עם מספר הטלפון שלך.
+          </p>
+        </div>
+
+        <a class="button button-light" href="#">
+          יצירת קשר
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 המרכז לתיאטרון בהנהלת אבי יוסף. כל הזכויות שמורות.
+  </footer>
+
+</body>
+</html>
